@@ -1,0 +1,32 @@
+{
+  "name": "doctorchatbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "nodemon ./src/server.js",
+    "lint": "eslint ./src",
+    "migrate": "node-pg-migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/inert": "^6.0.4",
+    "@hapi/jwt": "^2.1.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "joi": "^17.4.2",
+    "nanoid": "^3.1.30",
+    "node-pg-migrate": "^6.0.0",
+    "pg": "^8.7.1",
+    "redis": "^3.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "nodemon": "^2.0.15"
+  }
+}
