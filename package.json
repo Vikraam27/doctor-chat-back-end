@@ -21,7 +21,8 @@
     "nanoid": "^3.1.30",
     "node-pg-migrate": "^6.0.0",
     "pg": "^8.7.1",
-    "redis": "^3.1.2"
+    "redis": "^3.1.2",
+    "socket.io": "^4.3.1"
   },
   "devDependencies": {
     "eslint": "^8.3.0",

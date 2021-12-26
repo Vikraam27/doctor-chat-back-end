@@ -129,6 +129,31 @@ const init = async () => {
     return response.continue || response;
   });
 
+  // eslint-disable-next-line global-require
+  const io = require('socket.io')(server.listener, {
+    cors: {
+      origin: server.info.uri,
+      methods: ['GET', 'POST'],
+    },
+  });
+  io.on('connection', (socket) => {
+    socket.on('joinRoom', ({ roomId }) => {
+      socket.join(roomId);
+    });
+
+    socket.on('chatMsg', ({
+      roomId, sender, message, messageType, timestamp,
+    }) => {
+      io.to(roomId).emit('msg', ({
+        sender, message, messageType, timestamp,
+      }));
+    });
+
+    socket.on('disconnect', () => {
+      console.log('disconect');
+    });
+  });
+
   await server.start();
   console.log(`server running on ${server.info.uri}`);
 };
